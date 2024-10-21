@@ -1,0 +1,78 @@
+{
+  "table_list": {
+    "customer": {
+      "database_name": "Customer Table",
+      "struct": {
+        "id": {
+          "datatype": "int",
+          "notNull": true
+        },
+        "name": {
+          "datatype": "str",
+          "notNull": true
+        },
+        "age": {
+          "datatype": "int",
+          "notNull": true
+        },
+        "dob": {
+          "datatype": "int",
+          "notNull": true
+        },
+        "number": {
+          "datatype": "int",
+          "notNull": true
+        }
+      },
+      "database": []
+    },
+    "vehicle": {
+      "database_name": "Vehicle Table",
+      "struct": {
+        "id": {
+          "datatype": "int",
+          "notNull": true
+        },
+        "number_plate": {
+          "datatype": "int",
+          "notNull": true
+        },
+        "model": {
+          "datatype": "str",
+          "notNull": true
+        },
+        "owner_id": {
+          "datatype": "str",
+          "notNull": true
+        }
+      },
+      "database": []
+    },
+    "bill": {
+      "database_name": "Bill Table",
+      "struct": {
+        "id": {
+          "datatype": "int",
+          "notNull": true
+        },
+        "bill_number": {
+          "datatype": "int",
+          "notNull": false
+        },
+        "owner_id": {
+          "datatype": "int",
+          "notNull": true
+        },
+        "price": {
+          "datatype": "int",
+          "notNull": true
+        },
+        "vehical_id": {
+          "datatype": "int",
+          "notNull": true
+        }
+      },
+      "database": []
+    }
+  }
+}
