@@ -88,6 +88,7 @@ def insertData(table):
     print(data)
     # with open('database_list.json', 'a') as f:
     #     f.write(json.dumps(data))
+    write_database(load_data())
     display_data(table)
     # write_database(data)
     # return data
@@ -193,3 +194,7 @@ while True:
         print("Not a valid Input")
 
 
+def write_database(table):
+    with open(filename, 'w') as f:
+        json.dump(table, f, indent=4)
+    print(f"Data successfully written to {filename}")
