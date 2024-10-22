@@ -12,11 +12,18 @@ def display_bord():
     print(ttt_board[3],'|',ttt_board[4],'|',ttt_board[5])
     print("______________")
     print(ttt_board[6],'|',ttt_board[7],'|',ttt_board[8])
-def win_lose():
-    res = all( [i == j for i, j in zip(p1,wining)] )
-    print(res)
-win_lose()
 
+def win_lose(player_moves):
+    for combo in winning_combinations:
+            if all(ttt_board[i] == ttt_board[combo[0]] for i in combo):
+                return True
+        return False
+# Check for a draw (no available moves)
+if all(isinstance(x, str) for x in ttt_board):
+    os.system('clear')
+    display_board()
+    print("It's a draw!")
+    break
 
 def insert_value():
     player1 = ''
@@ -51,7 +58,11 @@ def insert_value():
                     ttt_board[select_index] = player1
                     # print(ttt_board[select_index])
                     # print(p1)
-                    display_bord()
+                    if win_lose(p1):
+                        os.system('clear')
+                        display_bord()
+                        print("Player 1 wins!")
+                        break
                     count = 2
                     continue
                 else:
@@ -59,7 +70,7 @@ def insert_value():
                     print(f"index is already used : {ttt_board[select_index]}")
                     continue
             else:
-                print("input a valid index number")
+                print("Invalid move, try again.")
                 continue
         elif count == 2:
             #elif player2:
@@ -72,7 +83,10 @@ def insert_value():
                     ttt_board[select_index] = player2
                     # print(ttt_board[select_index])
                     # print(p1)
-                    display_bord()
+                    if win_lose(p2):
+                        os.system('clear')
+                        display_bord()
+                        print("Player 2 wins!")
                     count = 1
                     continue
                 else:
