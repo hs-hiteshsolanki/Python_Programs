@@ -14,7 +14,7 @@ def display_bord():
     print(ttt_board[6],'|',ttt_board[7],'|',ttt_board[8])
 
 def win_lose(player_moves):
-    for combo in winning_combinations:
+    for combo in winning:
             if all(ttt_board[i] == ttt_board[combo[0]] for i in combo):
                 return True
         return False
